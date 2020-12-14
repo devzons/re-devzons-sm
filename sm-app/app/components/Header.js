@@ -14,7 +14,7 @@ function Header(props) {
             DevzonsApp{' '}
           </Link>
         </h4>
-        {props.loggedIn ? <HeaderLoggedin setLoggedIn={props.setLoggedIn} /> : <HeaderLoggedOut setLoggedIn={props.setLoggedIn} />}
+        {props.loggedIn ? <HeaderLoggedin /> : <HeaderLoggedOut />}
       </div>
     </header>
   )
