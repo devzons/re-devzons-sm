@@ -1,15 +1,14 @@
 import React, { useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import DispatchContext from '../DispatchContext'
+import StateContext from '../StateContext'
 
 function HeaderLoggedin(props) {
   const appDispatch = useContext(DispatchContext)
+  const appState = useContext(StateContext)
 
   function handleLogout() {
     appDispatch({ type: 'logout' })
-    localStorage.removeItem('devzonsappToken')
-    localStorage.removeItem('devzonsappUsername')
-    localStorage.removeItem('devzonsappAvatar')
   }
 
   return (
@@ -22,7 +21,7 @@ function HeaderLoggedin(props) {
         <span className='chat-count-badge text-white'> </span>
       </span>
       <a href='#' className='mr-2'>
-        <img className='small-header-avatar' src={localStorage.getItem('devzonsappAvatar')} />
+        <img className='small-header-avatar' src={appState.user.avatar} />
       </a>
       <Link className='btn btn-sm btn-success mr-2' to='/create-post'>
         Create Post
