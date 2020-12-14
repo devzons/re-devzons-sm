@@ -18,6 +18,7 @@ import CreatePost from './components/CreatePost'
 import ViewSinglePost from './components/ViewSinglePost'
 import FlashMessages from './components/FlashMessages'
 import Profile from './components/Profile'
+import EditPost from './components/EditPost'
 
 function Main() {
   const initialState = {
@@ -70,7 +71,8 @@ function Main() {
               {state.loggedIn ? <Home /> : <HomeGuest />}
             </Route>
             <Route path='/profile/:username' component={Profile} />
-            <Route path='/post/:id' component={ViewSinglePost} />
+            <Route path='/post/:id' exact component={ViewSinglePost} />
+            <Route path='/post/:id/edit' exact component={EditPost} />
             <Route path='/create-post' component={CreatePost} />
             <Route path='/about-us' exact component={About} />
             <Route path='/terms' exact component={Terms} />
